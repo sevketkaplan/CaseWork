@@ -7,7 +7,7 @@ Json Parse Methodu
 Proje içerisinde Extentions klasörü içindeki "response.json" dosyasında verilmiş olan json data DataObject ClassLibrary içerisindeki JsonResponse sınıfına dönüştürülmüştür.
 JsonResponse sınıfı içerisindeki tanımlanan özelliklerde iç içe olan sınıflar da aynı ClassLibrary ' de tanımlanmıştır.
 
-Methodun çalışması için gerekli API URL=> https://localhost:7231/Case/CaseTwo
+Methodun çalışması için gerekli API GET URL=> https://localhost:7231/Case/CaseTwo
 
 Methodun Controller Class'ı=> Case  Action =>CaseTwo
             
