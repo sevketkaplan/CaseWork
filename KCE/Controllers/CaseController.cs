@@ -48,9 +48,49 @@ namespace KCE.Controllers
         [Route("GenerateCode")]
         public ActionResult GenerateCode()
         {
-            Function.GetUniqueKey();
-            return Ok();
+            var keys = new Result<List<string>>();
+            List<string> keylist = new List<string>();
+            try
+            {
+                for (int i = 0; i < 1000; i++)
+                {
+                    var unique = CryptoCode.Generate();
+                    Console.WriteLine("index : " + (i + 1) + " kod : " + unique);
+                    System.Threading.Thread.Sleep(1);
+                    //zamana milisaniye ekleyerek farklý zaman gitmesini saðlýyoruz.
+                    keylist.Add(unique);
+                }
+                keys.IsSuccess = true;
+                keys.Message = "1000 Adet Kod üretilmiþtir.";
+                keys.Data = keylist;
+            }
+            catch (Exception ex)
+            {
+                keys.IsSuccess = false;
+                keys.Data = null;
+                keys.Message = $"Hata:{ex.Message} ";
+            }
+            return Ok(keys);
         }
 
+        [Route("VerifyCode")]
+        public ActionResult VerifyCode(string code)
+        {
+            Result<bool> result = new Result<bool>();
+            int valid_key_count = 0;
+            bool state = CryptoCode.VerifyCode(code);
+            if (state)
+            {
+                result.IsSuccess = state;
+                result.Message = "Doðrulama iþlemi baþarýlý";
+            }
+            else
+            {
+                result.IsSuccess = false;
+                result.Message = "Doðrulama iþlemi baþarýsýz";
+            }
+            return Ok(result);
+
+        }
     }
 }
