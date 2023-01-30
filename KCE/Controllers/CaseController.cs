@@ -24,9 +24,13 @@ namespace KCE.Controllers
             Result<List<JsonResponse>> result = new Result<List<JsonResponse>>();
             try
             {
+
+                //Alt bölümde verilen dosyanýn içindeki json string okunuyor.
                 using (StreamReader r = new StreamReader("../Extentions/response.json"))
                 {
                     text = r.ReadToEnd();
+
+                    //daha sonra da oluþturduðum Classa dönüþtürme yapýlýr.
                     jsonResponse = JsonConvert.DeserializeObject<List<JsonResponse>>(text);
                 }
                 result.IsSuccess = true;
