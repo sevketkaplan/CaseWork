@@ -13,7 +13,7 @@ Properties tıkladıktan sonra Common Properties-> Startup Project sekmesine gel
 Burada Single Startup project seçilince ardından "KCE" şeçeneğini de seçiyoruz. Tamam butonuna tıklayıp çıkıyoruz.
 Daha sonra projemizin Start butonunun yanında KCE yazdığından emin oluyoruz ve startlıyoruz.
 
-#Generate Code Methodu
+#Generate Code Methodu(GenerateCode methodu biraz uzun çalışmaktadır 1dk ya yakın bir süre... Optimizasyona zamanım olmadı.)
 ----------------------
 CryptoCode Class içindeki GenerateCode ve VerifyCode methodları
 
